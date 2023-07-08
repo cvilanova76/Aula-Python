@@ -132,6 +132,51 @@ distancia = math.sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1))
 
 print(f"{distancia:.4f}")
 
+#1016
+X = int(input())
+
+print(f"{2 * X} minutos")
+
+#1017
+tempo = int(input())
+velocidade = int(input())
+
+distancia = tempo * velocidade
+litros = distancia/12
+
+print(f"{litros:.3f}")
+
+#1018
+N = int(input())
+
+print(N)
+
+print(f"{N//100} nota(s) de R$ 100,00")
+N %= 100
+print(f"{N//50} nota(s) de R$ 50,00")
+N %= 50
+print(f"{N//20} nota(s) de R$ 20,00")
+N %= 20
+print(f"{N//10} nota(s) de R$ 10,00")
+N %= 10
+print(f"{N//5} nota(s) de R$ 5,00")
+N %= 5
+print(f"{N//2} nota(s) de R$ 2,00")
+N %= 2
+print(f"{N} nota(s) de R$ 1,00")
+
+#1019
+segundos = int(input())
+
+horas = segundos//3600
+segundos %= 3600
+minutos = segundos//60
+segundos %= 60
+
+print(f"{horas}:{minutos}:{segundos}")
+
+
+
 
 
 
