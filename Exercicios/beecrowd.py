@@ -355,6 +355,141 @@ for moeda in moedas:
     print(f"{reais//moeda} moeda(s) de R$ {(moeda/100):.2f}")
     reais %= moeda
 
+#1045
+x, y, z = input().split()
+x = float(x)
+y = float(y)
+z = float(z)
+
+if x >= y and x >= z:
+    a = x
+    b = y
+    c = z
+
+if y >= x and y >= z:
+    a = y
+    b = x
+    c = z
+
+if z >= x and z >= y:
+    a = z
+    b = x
+    c = y
+
+if a >= (b+c):
+    print("NAO FORMA TRIANGULO")
+elif a*a == (b*b + c*c):
+    print("TRIANGULO RETANGULO")
+elif a*a > (b*b + c*c):
+    print("TRIANGULO OBTUSANGULO")
+elif a*a < (b*b + c*c):
+    print("TRIANGULO ACUTANGULO")
+if a == b and b == c:
+    print("TRIANGULO EQUILATERO")
+elif a == b or b == c:
+    print("TRIANGULO ISOSCELES")
+
+#1046
+x = input().split()
+i = int(x[0])
+f = int(x[1])
+if i < f:
+    t = f - i
+else:
+    t = (24 - i) + f
+print("O JOGO DUROU %i HORA(S)"%t)
+
+#1047
+hi, mi, hf, mf = map(int, input().split())
+
+mi += hi*60
+mf += hf*60
+
+tempo = mf-mi
+if tempo <= 0:
+    tempo += 24*60
+
+h = tempo//60
+m = tempo%60
+
+print(f"O JOGO DUROU {h} HORA(S) E {m} MINUTO(S)")
+
+#1048
+sal = float(input())
+
+if sal <= 400.0:
+    reajuste = 15
+elif sal <= 800.0:
+    reajuste = 12
+elif sal <= 1200.0:
+    reajuste = 10
+elif sal <= 2000.0:
+    reajuste = 7
+else:
+    reajuste = 4
+
+print("Novo salario: %.2f" %(sal + (sal*reajuste/100)))
+print("Reajuste ganho: %.2f" %(sal*reajuste/100))
+print("Em percentual:", reajuste, "%")
+
+#1049
+a = input()
+b = input()
+c = input()
+if a == "vertebrado" and b == "ave" and c == "carnivoro":
+    animal = "aguia"
+if a == "vertebrado" and b == "ave" and c == "onivoro":
+    animal = "pomba"
+if a == "vertebrado" and b == "mamifero" and c == "onivoro":
+    animal = "homem"
+if a == "vertebrado" and b == "mamifero" and c == "herbivoro":
+    animal = "vaca"
+if a == "invertebrado" and b == "inseto" and c == "hematofago":
+    animal = "pulga"
+if a == 'invertebrado' and b == "inseto" and c == "herbivoro":
+    animal = "lagarta"
+if a == "invertebrado" and b == "anelideo" and c == "hematofago":
+    animal = "sanguessuga"
+if a == "invertebrado" and b == "anelideo" and c == "onivoro":
+    animal = "minhoca"
+print(animal)
+
+#1051
+r = float(input())
+
+if r <= 2000.00:
+    i = 0
+    print('Isento')
+
+if 2000.00 < r <= 3000.00:
+    r8 = r - 2000.00
+    i = r8 * (8 / 100)
+
+if 3000.00 < r <= 4500.00:
+    i8 = (8 / 100) * (1000.00)
+    r18 = r - 3000.00
+    i = r18 * (18 / 100) + i8
+
+if r > 4500.00:
+    i8 = (8 / 100) * (1000.00)
+    i18 = (18 / 100) * (1500.00)
+    r28 = r - 4500.00
+    i = i18 + i8 + r28 * (28 / 100)
+
+if r > 2000.00:
+    i = float(i)
+    print('R$ {:.2f}'.format(i))
+
+#1052
+i = int(input())
+m = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+print(m[i])
+
+
+
+
+
+
 
 
 
