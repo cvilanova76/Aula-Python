@@ -485,6 +485,129 @@ i = int(input())
 m = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 print(m[i])
 
+#1061
+dia_i = input().split()
+hora_i = input().split()
+dia_f = input().split()
+hora_f = input().split()
+di, df = int(dia_i[1]), int(dia_f[1])
+hi, mi, si = int(hora_i[0]), int(hora_i[2]), int(hora_i[4])
+hf, mf, sf = int(hora_f[0]), int(hora_f[2]), int(hora_f[4])
+
+minuto_seg = 60
+hora_seg = minuto_seg*60
+dia_seg = hora_seg*24
+i = si + mi*minuto_seg + hi*hora_seg + di*dia_seg
+f = sf + mf*minuto_seg + hf*hora_seg + df*dia_seg
+
+if i<f:
+    tempo = f - i
+    dias = int(tempo/dia_seg)
+    tempo = tempo%dia_seg
+    horas = int(tempo/hora_seg)
+    tempo = tempo%hora_seg
+    minutos = int(tempo/minuto_seg)
+    tempo = tempo%minuto_seg
+    segundos = tempo
+    print('{} dia(s)\n{} hora(s)\n{} minuto(s)\n{} segundo(s)'.format(dias, horas, minutos, segundos))
+
+#1064
+a = float(input())
+b = float(input())
+c = float(input())
+d = float(input())
+e = float(input())
+f = float(input())
+s=0
+m =0
+t =[a,b,c,d,e,f]
+for n in t:
+  if n > 0:
+    s = s + 1
+    m = m + (n)
+print('{} valores positivos'.format(s))
+print('{:.1f}'.format(m/s))
+
+#1065
+count=0
+for i in range(5):
+    n = float(input())
+    if n%2==0:
+        count=count+1
+print("{} valores pares".format(count))
+
+#1066
+a = []
+for i in range(5):
+    n = int(input())
+    a.append(int(n))
+
+l = 0
+m = 0
+o = 0
+p = 0
+for j in range(5):
+    if a[j] % 2 == 0:
+        l += 1
+    if a[j] % 2 == 1:
+        m += 1
+    if a[j] > 0:
+        o += 1
+    if a[j] < 0:
+        p += 1
+print(l, "valor(es) par(es)")
+print(m, "valor(es) impar(es)")
+print(o, "valor(es) positivo(s)")
+print(p, "valor(es) negativo(s)")
+
+#1067
+x = int(input())
+i = 1
+while i <= x:
+    if i % 2 != 0:
+        print(i)
+    i = i + 1
+
+#1070
+num = int(input())
+impares = [n for n in range(num,num+12) if n % 2 != 0]
+for n in impares:
+    print(n)
+
+#1071
+x = int(input())
+y = int(input())
+
+maior = x if x > y else y
+menor = y if y < x else x
+menor += 1
+soma = 0
+
+while menor < maior:
+    if menor % 2 != 0:
+        soma += menor
+    menor += 1
+print(soma)
+
+#1072
+n = int(input())
+dentro = 0
+fora = 0
+for i in range(1,n+1):
+    x = int(input())
+    if x >= 10 and x <= 20:
+        dentro = dentro + 1
+    else:
+        fora = fora + 1
+print("{} in".format(dentro))
+print("{} out".format(fora))
+
+#1073
+n = int(input())
+x = 2
+for i in range(2, n+1, 2):
+    print("{}^2 = {}".format(i, i**2))
+
 
 
 
