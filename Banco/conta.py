@@ -13,6 +13,7 @@ class Conta:
         self.historico.transacoes.append("depósito de R$ {}".format(valor))
 
     def sacar(self, valor):
+        self.saldo -= valor
         if self.saldo < valor:
             return False
         else:
@@ -21,7 +22,7 @@ class Conta:
             return True
 
     def extrato(self):
-        print("numero: {} \ntitular: {} \nsaldo: {}".format(self['numero'], self['titular'], self['saldo']))
+        print("numero: {} \ncliente: {} \nsaldo: {}".format(self.numero, self.titular, self.saldo))
         self.historico.transacoes.append("tirou extrato - saldo de R$ {}".format(self.saldo))
 
     def transferir(self, destino, valor):
