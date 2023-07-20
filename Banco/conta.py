@@ -1,12 +1,49 @@
 from cliente import Cliente
 from historico import Historico
 class Conta:
+    _identificador = 1
+
+    __slots__ = ['numero', 'cliente', 'saldo', 'limite', 'historico']
     def __init__(self, numero, cliente, saldo, limite):
-        self.numero = numero
-        self.cliente = cliente
-        self.saldo= saldo
-        self.limite = limite
-        self.historico = Historico()
+        self._numero = numero
+        self._cliente = cliente
+        self._saldo= saldo
+        self._limite = limite
+        self._historico = Historico()
+        
+        Conta._total_de_contas += 1
+
+
+    @property
+    def historico(self):
+        return self._historico
+
+    @property
+    def numero(self):
+        return self._numero
+
+    @property
+    def cliente(self):
+        return self._cliente
+
+    @property
+    def saldo (self):
+        return self._saldo
+
+    @saldo.setter
+    def saldo(self, saldo):
+        if saldo < 0:
+            print("Saldo não pode ser negativo")
+        else:
+            self._saldo = saldo
+
+    @property
+    def limite(self):
+        return self._limite
+
+    @staticmethod
+    def get_identificador():
+        return Conta._identificador
 
     def depositar(self, valor):
         self.saldo += valor
