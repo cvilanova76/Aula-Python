@@ -10,10 +10,11 @@ class Conta:
         self._saldo= saldo
         self._limite = limite
         self._historico = Historico()
-        
+
         Conta._total_de_contas += 1
 
-
+    def atualiza(self, taxa):
+        self._saldo += self._saldo * taxa
     @property
     def historico(self):
         return self._historico
