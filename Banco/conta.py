@@ -1,10 +1,11 @@
 from cliente import Cliente
 from historico import Historico
-class Conta:
-    _identificador = 1
+import abc
+class Conta(abc.ABC):
+    _total_de_contas = 1
 
-    __slots__ = ['numero', 'cliente', 'saldo', 'limite', 'historico']
-    def __init__(self, numero, cliente, saldo, limite):
+
+    def __init__(self, numero, cliente, saldo, limite = 10000.0):
         self._numero = numero
         self._cliente = cliente
         self._saldo= saldo
@@ -13,8 +14,10 @@ class Conta:
 
         Conta._total_de_contas += 1
 
+    @abc.abstractmethod
     def atualiza(self, taxa):
         self._saldo += self._saldo * taxa
+        return self._saldo
     @property
     def historico(self):
         return self._historico

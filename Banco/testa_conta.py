@@ -1,17 +1,18 @@
 from conta import Conta
 from cliente import Cliente
+from conta_poupanca import ContaPoupanca
+from conta_corrente import ContaCorrente
+from atualizador_conta import AtualizadorConta
 
 
-conta = Conta('123-4', 'Carolina Carvalho', 1000.0, 10000.0)
-conta1 = Conta('432-1', 'Pedro Salles', 1000.0, 50000.0)
-cliente = Cliente('Carolina', 'Carvalho', '123456789-00')
-cliente1 = Cliente('Pedro', 'Salles', '009876543-21')
+cliente = Cliente("Carolina", "Carvalho", "123456789-00")
+cp = ContaPoupanca("123-4", cliente, 1000.0)
+cc = ContaCorrente("123-4", cliente, 1000.0)
 
-conta1.depositar(250.0)
-conta1.extrato()
-conta1.sacar(500.0)
-conta1.extrato()
-conta1.transferir(conta, 200.0)
-conta.extrato()
-conta1.extrato()
+ac = AtualizadorConta(0.1)
+
+ac.roda(cp)
+ac.roda(cc)
+
+print("Saldo total: {}".format(ac.saldo_total))
 
