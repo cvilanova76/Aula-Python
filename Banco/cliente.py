@@ -1,4 +1,4 @@
-from autenticavel import Autenticavel
+from autenticavelmixin import Autenticavel
 class Cliente(Autenticavel):
     def __init__(self, nome, sobrenome, cpf, senha):
         self.nome = nome

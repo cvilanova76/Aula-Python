@@ -1,5 +1,5 @@
 from funcionario import Funcionario
-from autenticavel import Autenticavel
+from autenticavelmixin import Autenticavel
 class Gerente(Funcionario, Autenticavel):
 
     def __init__(self, nome, cpf, salario, senha, qtd_liderados):
