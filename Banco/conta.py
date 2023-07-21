@@ -1,5 +1,6 @@
 from cliente import Cliente
 from historico import Historico
+from excecoes import SaldoInsuficienteError
 import abc
 class Conta(abc.ABC):
     _total_de_contas = 1
@@ -50,12 +51,17 @@ class Conta(abc.ABC):
         return Conta._identificador
 
     def depositar(self, valor):
-        self.saldo += valor
-        self.historico.transacoes.append("depósito de R$ {}".format(valor))
+        if valor < 0:
+            raise ValueError("Valor inválido")
+        else:
+            self.saldo += valor
+            self.historico.transacoes.append("depósito de R$ {}".format(valor))
 
     def sacar(self, valor):
-        self.saldo -= valor
+        if valor < 0:
+            raise ValueError("Valor inválido")
         if self.saldo < valor:
+            raise SaldoInsuficienteError("Saldo insuficiente")
             return False
         else:
             self.saldo -= valor
